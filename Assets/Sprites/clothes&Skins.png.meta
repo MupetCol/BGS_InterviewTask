@@ -551,7 +551,7 @@ TextureImporter:
         x: 80
         y: 32
         width: 16
-        height: 16
+        height: 6
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -572,7 +572,7 @@ TextureImporter:
         x: 96
         y: 32
         width: 16
-        height: 16
+        height: 6
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -593,7 +593,7 @@ TextureImporter:
         x: 112
         y: 32
         width: 16
-        height: 16
+        height: 6
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -614,7 +614,7 @@ TextureImporter:
         x: 96
         y: 16
         width: 16
-        height: 16
+        height: 6
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -635,7 +635,7 @@ TextureImporter:
         x: 112
         y: 16
         width: 16
-        height: 16
+        height: 6
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -656,7 +656,7 @@ TextureImporter:
         x: 128
         y: 16
         width: 16
-        height: 16
+        height: 6
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -677,7 +677,7 @@ TextureImporter:
         x: 96
         y: 0
         width: 16
-        height: 16
+        height: 6
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -698,7 +698,7 @@ TextureImporter:
         x: 112
         y: 0
         width: 16
-        height: 16
+        height: 6
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -719,7 +719,7 @@ TextureImporter:
         x: 128
         y: 0
         width: 16
-        height: 16
+        height: 6
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -729,6 +729,27 @@ TextureImporter:
       bones: []
       spriteID: 0fc7070c9dc22ba42a708889f74b8461
       internalID: -417870476
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: clothes&Skins_24
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 16
+        width: 16
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7c6ae915e86e41f4098078b0f0cf5de6
+      internalID: -1729927469
       vertices: []
       indices: 
       edges: []

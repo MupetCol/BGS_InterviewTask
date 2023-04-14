@@ -14,11 +14,11 @@ public class ShopHandler : MonoBehaviour
     [SerializeField] private ToggleGroup _toggleGroup;
     [SerializeField] private InventoryHandler _playerInventory;
     [SerializeField] private TMP_Text _coinsText;
-	public FloatReference _playerCoins;
+    [SerializeField] private FloatReference _playerCoins;
 
-	#region UNITY_METHODS
+    #region UNITY_METHODS
 
-	void Start()
+    void Start()
     {
         UpdateItems();
     }
@@ -36,19 +36,36 @@ public class ShopHandler : MonoBehaviour
 	{
         // For when the player sells to the shop
         _items.Add(item);
-	}
+        UpdateItems();
+    }
 
     public void Remove(Item item)
 	{
         // For when something is sold
         _items.Remove(item);
-	}
+        UpdateItems();
+    }
+    public void Buy()
+    {
+
+        Toggle toggleSelected = _toggleGroup.ActiveToggles().FirstOrDefault();
+        ItemInstance itemSelected = toggleSelected.GetComponent<ItemInstance>();
+
+
+        if (_playerCoins.value >= itemSelected._item.cost)
+        {
+            Remove(itemSelected._item);
+            _playerInventory.Add(itemSelected._item);
+            _playerCoins.value -= itemSelected._item.cost;
+            _coinsText.text = "X " + _playerCoins.value.ToString();
+        }
+    }
 
     #endregion
 
     #region PRIVATE_METHODS
 
-    private void UpdateItems()
+    public void UpdateItems()
 	{
         // Clear all existing items on the hierarchy
 		foreach (Transform item in _shopContent)
@@ -62,43 +79,14 @@ public class ShopHandler : MonoBehaviour
             obj.GetComponent<Toggle>().group = _toggleGroup;
             obj.GetComponent<ItemInstance>()._item = _it;
 
-            var ItemIcon = obj.transform.Find("ItemIcon").GetComponent<Image>();
-            var ItemCost = obj.transform.Find("ItemCost").GetComponent<TMP_Text>();
+            var itemIcon = obj.transform.Find("ItemIcon").GetComponent<Image>();
+            var itemCost = obj.transform.Find("ItemCost").GetComponent<TMP_Text>();
 
-            ItemIcon.sprite = _it.icon;
-            ItemCost.text = _it.cost.ToString();
+            itemIcon.sprite = _it.icon;
+            itemCost.text = _it.cost.ToString();
 		}
 	}
 
     #endregion
-
-    #region PUBLIC_VARIABLES
-
-
-    public void Buy()
-    {
-
-        Toggle toggleSelected = _toggleGroup.ActiveToggles().FirstOrDefault();
-        ItemInstance itemSelected = toggleSelected.GetComponent<ItemInstance>();
-
-
-        if (_playerCoins.value >= itemSelected._item.cost)
-        {
-            Remove(itemSelected._item);
-            _playerInventory.Add(itemSelected._item);
-            _playerCoins.value -= itemSelected._item.cost;
-            _coinsText.text = "X "+_playerCoins.value.ToString();
-
-
-            UpdateItems();
-            _playerInventory.UpdateItems();
-        }
-    }
-
-    #endregion
-
-
-
-
 
 }

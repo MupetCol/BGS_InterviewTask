@@ -85,13 +85,16 @@ public class NPCInteractionHandler : MonoBehaviour, IPointerEnterHandler, IPoint
 		}
 	}
 
-	private IEnumerator CloseDialogue()
+	private IEnumerator CloseDialogue(string endingDialogue)
 	{
 		foreach (GameObject button in _buttons)
 		{
 			button.SetActive(false);
 		}
-		_npcDialogue.text = _closingDialogue;
+
+		if (endingDialogue != null) _npcDialogue.text = endingDialogue;
+		else { _npcDialogue.text = _closingDialogue; }
+
 
 		yield return new WaitForSeconds(2f);
 
@@ -106,10 +109,15 @@ public class NPCInteractionHandler : MonoBehaviour, IPointerEnterHandler, IPoint
 
 	#region PUBLIC_METHODS
 
-	public void EndInteraction()
+	public void EndInteraction(string endingDialogue)
 	{
-		StartCoroutine(CloseDialogue());
+		StartCoroutine(CloseDialogue(endingDialogue));
 	}
+
+	public void ChangeDialogue(string newDialogue)
+	{
+		_npcDialogue.text = newDialogue;
+	} 
 
 	#endregion
 
