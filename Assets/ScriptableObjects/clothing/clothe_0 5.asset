@@ -14,5 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 5
   itemName: Lady
+  dialogueWhenBought: 
   cost: 99
   icon: {fileID: 2011945832, guid: ca3c27f6f9857a24099cc8469592d60c, type: 3}
+  clothing: {fileID: -1940505253, guid: ca3c27f6f9857a24099cc8469592d60c, type: 3}

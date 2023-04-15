@@ -18,6 +18,7 @@ public class InventoryHandler : MonoBehaviour
     [SerializeField] private TMP_Text _coinsText;
     [SerializeField] private TMP_Text _sellButtonText;
     [SerializeField] private FloatReference _playerCoins;
+    [SerializeField] private SpriteRenderer _playerClothes;
 
 	#region UNITY_METHODS
 
@@ -54,23 +55,6 @@ public class InventoryHandler : MonoBehaviour
         UpdateItems();
     }
 
-    public void UpdateSellButtonCost(Toggle toggle)
-	{        
-		if (toggle.isOn)
-		{
-            _sellButtonText.GetComponentInParent<Button>().interactable = true;
-            _coinIcon.SetActive(true);
-            ItemInstance itemSelected = toggle.GetComponent<ItemInstance>();
-            _sellButtonText.text = "SELL " + itemSelected._item.cost;
-		}
-		else
-		{
-            _sellButtonText.text = "SELL";
-            _sellButtonText.GetComponentInParent<Button>().interactable = false;
-            _coinIcon.SetActive(false);
-        }
-	}
-
     public void Sell()
     {
 
@@ -85,12 +69,26 @@ public class InventoryHandler : MonoBehaviour
         _coinsText.text = "X " + _playerCoins.value.ToString();      
     }
 
+    public void OpenInventory()
+	{
+		if (_isShopOpened.toggle)
+		{
+            gameObject.SetActive(true);
+            _sellButtonText.transform.parent.gameObject.SetActive(true);
+		}
+		else
+		{
+            gameObject.SetActive(!gameObject.activeSelf);
+            _sellButtonText.transform.parent.gameObject.SetActive(false);
+        }
+	}
+
 
     #endregion
 
     #region PRIVATE_METHODS
 
-    public void UpdateItems()
+    private void UpdateItems()
     {
         // Clear all existing items on the hierarchy
         foreach (Transform item in _content)
@@ -110,13 +108,39 @@ public class InventoryHandler : MonoBehaviour
             var itemIcon = obj.transform.Find("ItemIcon").GetComponent<Image>();
             itemIcon.sprite = _it.icon;
 
+            var WearButton = obj.transform.Find("WearButton").GetComponent<Button>();
+            WearButton.onClick.AddListener(delegate { ChangePlayerClothes(_it.clothing); });
 
         }
 
+        if (!_isShopOpened.toggle) return;
         _sellButtonText.text = "SELL";
         _sellButtonText.GetComponentInParent<Button>().interactable = false;
         _coinIcon.SetActive(false);
     }
+
+    private void UpdateSellButtonCost(Toggle toggle)
+    {
+        if (toggle.isOn)
+        {
+            _sellButtonText.GetComponentInParent<Button>().interactable = true;
+            _coinIcon.SetActive(true);
+            ItemInstance itemSelected = toggle.GetComponent<ItemInstance>();
+            _sellButtonText.text = "SELL " + itemSelected._item.cost;
+        }
+        else
+        {
+            _sellButtonText.text = "SELL";
+            _sellButtonText.GetComponentInParent<Button>().interactable = false;
+            _coinIcon.SetActive(false);
+        }
+    }
+
+
+    private void ChangePlayerClothes(Sprite clothes)
+	{
+        _playerClothes.sprite = clothes;
+	}
 
     #endregion
 

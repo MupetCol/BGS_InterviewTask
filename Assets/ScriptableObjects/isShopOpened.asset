@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: isShopOpened
   m_EditorClassIdentifier: 
   toggle: 0
-  reset: 0
+  reset: 1
   defValue: 0

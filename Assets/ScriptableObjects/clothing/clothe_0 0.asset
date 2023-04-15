@@ -14,5 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 0
   itemName: Wizard
+  dialogueWhenBought: 
   cost: 99
   icon: {fileID: 2094473301, guid: ca3c27f6f9857a24099cc8469592d60c, type: 3}
+  clothing: {fileID: 1820878277, guid: ca3c27f6f9857a24099cc8469592d60c, type: 3}

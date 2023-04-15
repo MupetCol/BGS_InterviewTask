@@ -8,4 +8,5 @@ public class Item : ScriptableObject
 	public string dialogueWhenBought;
 	public int cost;
 	public Sprite icon;
+	public Sprite clothing;
 }

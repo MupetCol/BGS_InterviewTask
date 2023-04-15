@@ -64,6 +64,7 @@ public class BasicInteractionHandler : MonoBehaviour, IPointerEnterHandler, IPoi
 			_renderer.sprite = _defaultSprite;
 
 			// We scale it to vector.one quickly and then apply the tweening "PUNCH" so it creates a nice visual "bounce" effect
+			_textBubble.transform.localScale = Vector3.zero;
 			_textBubble.transform.DOScale(1f, .25f).SetEase(Ease.InOutSine);
 			yield return new WaitForSeconds(.25f);
 			_textBubble.transform.DOPunchScale(new Vector3(_punch, _punch, 0f), _duration, _vibrato, _elasticity);

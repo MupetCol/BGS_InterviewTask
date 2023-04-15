@@ -17,3 +17,4 @@ MonoBehaviour:
   dialogueWhenBought: 
   cost: 5
   icon: {fileID: -1729927469, guid: ca3c27f6f9857a24099cc8469592d60c, type: 3}
+  clothing: {fileID: -938404294, guid: ca3c27f6f9857a24099cc8469592d60c, type: 3}
