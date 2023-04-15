@@ -15,6 +15,6 @@ MonoBehaviour:
   id: 4
   itemName: Knight
   dialogueWhenBought: 
-  cost: 99
+  cost: 70
   icon: {fileID: -1776139349, guid: ca3c27f6f9857a24099cc8469592d60c, type: 3}
   clothing: {fileID: -1114205618, guid: ca3c27f6f9857a24099cc8469592d60c, type: 3}

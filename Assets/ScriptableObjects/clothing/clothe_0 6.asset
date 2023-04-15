@@ -15,6 +15,6 @@ MonoBehaviour:
   id: 6
   itemName: Warrior
   dialogueWhenBought: 
-  cost: 99
+  cost: 80
   icon: {fileID: -1157660191, guid: ca3c27f6f9857a24099cc8469592d60c, type: 3}
   clothing: {fileID: -1745795689, guid: ca3c27f6f9857a24099cc8469592d60c, type: 3}

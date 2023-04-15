@@ -10,7 +10,7 @@ public class BasicInteractionHandler : MonoBehaviour, IPointerEnterHandler, IPoi
 	#region VARIABLES
 
 	[Header ("Main")]
-	[SerializeField] private Sprite _defaultSprite;
+	
 	[SerializeField] private Sprite _spriteOnHover;
 	[SerializeField] private GameObject _textBubble;
 	[SerializeField] private bool _isInteracting = false;
@@ -25,6 +25,7 @@ public class BasicInteractionHandler : MonoBehaviour, IPointerEnterHandler, IPoi
 	[SerializeField] private int _vibrato=1;
 
 	private SpriteRenderer _renderer;
+	private Sprite _defaultSprite;
 
 	#endregion
 
@@ -33,6 +34,7 @@ public class BasicInteractionHandler : MonoBehaviour, IPointerEnterHandler, IPoi
 	private void Awake()
 	{
 		_renderer = GetComponent<SpriteRenderer>();
+		_defaultSprite = _renderer.sprite;
 	}
 
 	public void OnPointerDown(PointerEventData eventData)

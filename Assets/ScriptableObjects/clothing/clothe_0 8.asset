@@ -15,6 +15,6 @@ MonoBehaviour:
   id: 8
   itemName: Green Dude
   dialogueWhenBought: 
-  cost: 99
+  cost: 90
   icon: {fileID: -417870476, guid: ca3c27f6f9857a24099cc8469592d60c, type: 3}
   clothing: {fileID: -1541060484, guid: ca3c27f6f9857a24099cc8469592d60c, type: 3}
